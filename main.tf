@@ -9,7 +9,6 @@ module "vm1" {
     rg_name = azurerm_resource_group.rg1.name
     nsg = azurerm_network_security_group.lb_vms_nsg.id
     vm_name = "testvm"
-    vm_rn = 
   }
 
 module "vm2" {

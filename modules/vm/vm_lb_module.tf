@@ -1,4 +1,4 @@
-resource "azurerm_network_interface" "vm0_nic" {
+resource "azurerm_network_interface" "vm_nic" {
   name                 = "${var.vm_name}-nic"
   location             = var.location
   resource_group_name  = var.rg_name
@@ -13,19 +13,19 @@ resource "azurerm_network_interface" "vm0_nic" {
     
   }
 }
-resource "azurerm_network_interface_security_group_association" "vm0_nsg_config" {
-  network_interface_id      = azurerm_network_interface.vm0_nic.id
+resource "azurerm_network_interface_security_group_association" "vm_nsg_config" {
+  network_interface_id      = azurerm_network_interface.vm_nic.id
   network_security_group_id = var.nsg
 }
-resource "azurerm_windows_virtual_machine" "vm0" {
+resource "azurerm_windows_virtual_machine" "vm" {
   name                = var.vm_name
   resource_group_name = var.rg_name
   location            = var.location
   size                = "Standard_B1s"
-  admin_username      = var.vm0_username
-  admin_password      = var.vm0_password
+  admin_username      = var.vm_username
+  admin_password      = var.vm_password
   network_interface_ids = [
-    azurerm_network_interface.vm0_nic.id,
+    azurerm_network_interface.vm_nic.id,
   ]
 
   os_disk {

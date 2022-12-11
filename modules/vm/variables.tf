@@ -2,11 +2,11 @@ variable "vm_name" {
   default = "az104-06-vm0"
 }
 
-variable "vm0_username" {
+variable "vm_username" {
   default = "username"
 }
 
-variable "vm0_password" {
+variable "vm_password" {
   default = "Password1234"
 }
 
@@ -22,8 +22,5 @@ variable "rg_name" {
   }
    
    variable "nsg" {
-     
-   }
-   variable "vm_rn" {
      
    }
